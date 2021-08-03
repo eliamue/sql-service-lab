@@ -66,4 +66,16 @@ describe('demo routes', () => {
 
     expect(res.body).toEqual({ ...brewery, id: '1' });
   });
+
+  it('gets all breweries', async () => {
+    const brewery1 = await BreweryService.generateBrewery({ vid: 8163 });
+    const brewery2 = await BreweryService.generateBrewery({ vid: 8273 });
+    const brewery3 = await BreweryService.generateBrewery({ vid: 8513 });
+    const brewery4 = await BreweryService.generateBrewery({ vid: 8928 });
+
+    const res = await request(app)
+      .get('/api/v1/breweries');
+
+    expect(res.body).toEqual([brewery1, brewery2, brewery3, brewery4]);
+  });
 });
