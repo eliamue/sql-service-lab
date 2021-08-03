@@ -3,6 +3,7 @@ import setup from '../data/setup.js';
 import request from 'supertest';
 import app from '../lib/app.js';
 import BreweryService from '../lib/services/BreweryService.js';
+import AccountService from '../lib/services/AccountService.js';
 
 describe('demo routes', () => {
   beforeEach(() => {
