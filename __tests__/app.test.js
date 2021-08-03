@@ -95,4 +95,20 @@ describe('demo routes', () => {
       });
     expect(res.body).toEqual({ ...brewery, name: 'Black Raven Brewing Company' });
   });
+
+  it('deletes a specific brewery', async () => {
+    const brewery = await BreweryService.generateBrewery({
+      bid: 8428,
+      name: 'Argyle Brewing Company',
+      city: 'Greenwich',
+      state: 'New York',
+      website: 'http://www.argylebrewing.com'
+    });
+    const res = await request(app)
+      .delete(`/api/v1/breweries/${brewery.id}`);
+
+    expect(res.body).toEqual({
+      message: `${brewery.name} has been deleted.`
+    });
+  });
 });
