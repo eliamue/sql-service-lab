@@ -1,8 +1,14 @@
 DROP TABLE IF EXISTS accounts;
+DROP TABLE IF EXISTS quotes;
 
 CREATE TABLE accounts (
       id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
       email TEXT NOT NULL,
       first_name TEXT NOT NULL,
       last_name TEXT NOT NULL
+);
+
+CREATE TABLE quotes (
+      id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+      quote TEXT NOT NULL
 );
