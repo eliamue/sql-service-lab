@@ -34,20 +34,19 @@ describe('demo routes', () => {
     expect(res.body).toEqual({ 0: expect.any(String) });
   });
 
-  // it('creates a new brewery', async () => {
-  //   const brewery = {
-  //     bid: 8946,
-  //     name: 'Bitter Brothers Brewing Co.',
-  //     type: 'micro',
-  //     city: 'San Diego',
-  //     state: 'California',
-  //     website: 'http://www.bitterbrothers.com'
-  //   };
+  it('creates a new brewery', async () => {
+    const brewery = {
+      bid: 8946,
+      name: 'Bitter Brothers Brewing Co.',
+      city: 'San Diego',
+      state: 'California',
+      website: 'http://www.bitterbrothers.com'
+    };
 
-  //   const res = await request(app)
-  //     .post('/api/v1/breweries')
-  //     .send({ bid: 8946 });
+    const res = await request(app)
+      .post('/api/v1/breweries')
+      .send({ bid: 8946 });
 
-  //   expect(res.body).toEqual({ ...brewery, id: '1' });
-  // });
+    expect(res.body).toEqual({ ...brewery, id: '1' });
+  });
 });
