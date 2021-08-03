@@ -10,7 +10,7 @@ describe('demo routes', () => {
 
   it('creates an account with name and email', async () => {
     const user = {
-      email: 'abe.froman@email.test',
+      email: 'abe.froman@email.com',
       firstName: 'Abe',
       lastName: 'Froman'
     };
@@ -24,5 +24,17 @@ describe('demo routes', () => {
       ...user,
       emessage: expect.any(String),
     });
+  });
+
+  it('tests creating a Ron Swanson quote', async () => {
+    const quote = {
+      quote: 'I wanna punch you in the face so bad right now.'
+    };
+
+    const res = await request(app)
+      .post('/api/v1/quotes')
+      .send({ quote: 'I wanna punch you in the face so bad right now.' });
+
+    expect(res.body).toEqual({ ...quote, id: '1' });
   });
 });
