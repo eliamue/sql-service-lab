@@ -68,10 +68,10 @@ describe('demo routes', () => {
   });
 
   it('gets all breweries', async () => {
-    const brewery1 = await BreweryService.generateBrewery({ vid: 8163 });
-    const brewery2 = await BreweryService.generateBrewery({ vid: 8273 });
-    const brewery3 = await BreweryService.generateBrewery({ vid: 8513 });
-    const brewery4 = await BreweryService.generateBrewery({ vid: 8928 });
+    const brewery1 = await BreweryService.generateBrewery({ bid: 8163 });
+    const brewery2 = await BreweryService.generateBrewery({ bid: 8273 });
+    const brewery3 = await BreweryService.generateBrewery({ bid: 8513 });
+    const brewery4 = await BreweryService.generateBrewery({ bid: 8921 });
 
     const res = await request(app)
       .get('/api/v1/breweries');

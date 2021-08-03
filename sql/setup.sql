@@ -20,5 +20,5 @@ CREATE TABLE breweries (
       "name" TEXT NOT NULL,
       city TEXT NOT NULL,
       "state" TEXT NOT NULL,
-      website TEXT NOT NULL
+      website TEXT
 );
