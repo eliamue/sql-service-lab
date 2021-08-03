@@ -16,9 +16,9 @@ CREATE TABLE quotes (
 
 CREATE TABLE breweries (
       id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-      bid INT NOT NULL,
-      "name" TEXT NOT NULL,
-      city TEXT NOT NULL,
-      "state" TEXT NOT NULL,
+      bid INT,
+      "name" TEXT,
+      city TEXT,
+      "state" TEXT,
       website TEXT
 );
