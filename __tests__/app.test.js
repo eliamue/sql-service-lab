@@ -27,14 +27,11 @@ describe('demo routes', () => {
   });
 
   it('tests creating a Ron Swanson quote', async () => {
-    const quote = {
-      quote: 'I wanna punch you in the face so bad right now.'
-    };
 
     const res = await request(app)
       .post('/api/v1/quotes')
-      .send({ quote: 'I wanna punch you in the face so bad right now.' });
+      .send(0);
 
-    expect(res.body).toEqual({ ...quote, id: '1' });
+    expect(res.body).toEqual({ 0: expect.any(String) });
   });
 });

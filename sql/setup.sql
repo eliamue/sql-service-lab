@@ -10,5 +10,5 @@ CREATE TABLE accounts (
 
 CREATE TABLE quotes (
       id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-      quote TEXT NOT NULL
+      quote TEXT
 );
