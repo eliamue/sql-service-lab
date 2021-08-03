@@ -36,7 +36,7 @@ describe('demo routes', () => {
 
   it('creates a new brewery', async () => {
     const brewery = {
-      id: 8946,
+      bid: 8946,
       name: 'Bitter Brothers Brewing Co.',
       type: 'micro',
       city: 'San Diego',
@@ -45,12 +45,9 @@ describe('demo routes', () => {
     };
 
     const res = await request(app)
-      .post('/api/vi/breweries')
-      .send(brewery);
+      .post('/api/v1/breweries')
+      .send({ bid: 8946 });
 
-    expect(res.body).toEqual({
-      id: '1',
-      ...brewery
-    });
+    expect(res.body).toEqual({ ...brewery, id: '1' });
   });
 });
