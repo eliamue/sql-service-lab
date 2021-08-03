@@ -22,7 +22,7 @@ describe('demo routes', () => {
     expect(res.body).toEqual({
       id: '1',
       ...user,
-      mailPreview: expect.any(String),
+      emessage: expect.any(String),
     });
   });
 });
