@@ -27,11 +27,30 @@ describe('demo routes', () => {
   });
 
   it('tests creating a Ron Swanson quote', async () => {
-
     const res = await request(app)
       .post('/api/v1/quotes')
       .send(0);
 
     expect(res.body).toEqual({ 0: expect.any(String) });
+  });
+
+  it('creates a new brewery', async () => {
+    const brewery = {
+      id: 8946,
+      name: 'Bitter Brothers Brewing Co.',
+      type: 'micro',
+      city: 'San Diego',
+      state: 'California',
+      website: 'http://www.bitterbrothers.com'
+    };
+
+    const res = await request(app)
+      .post('/api/vi/breweries')
+      .send(brewery);
+
+    expect(res.body).toEqual({
+      id: '1',
+      ...brewery
+    });
   });
 });
