@@ -49,4 +49,20 @@ describe('demo routes', () => {
 
     expect(res.body).toEqual({ ...brewery, id: '1' });
   });
+
+  it('gets a brewery by id', async () => {
+    const brewery = {
+      bid: 8532,
+      name: 'Back Forty Beer Co',
+      city: 'Gadsden',
+      state: 'Alabama',
+      website: 'http://www.backfortybeer.com'
+    };
+
+    const res = await request(app)
+      .post('/api/v1/breweries/1')
+      .send({ bid: 8532 });
+
+    expect(res.body).toEqual({ ...brewery, id: '1' });
+  });
 });
