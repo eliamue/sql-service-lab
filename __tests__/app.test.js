@@ -78,4 +78,21 @@ describe('demo routes', () => {
 
     expect(res.body).toEqual([brewery1, brewery2, brewery3, brewery4]);
   });
+
+  it('updates a specific brewery', async () => {
+    const brewery = await BreweryService.generateBrewery({
+      bid: 8999,
+      name: 'Black Raven Brewing Co',
+      city: 'Redmond',
+      state: 'Washington',
+      website: 'http://www.blackravenbrewing.com'
+    });
+
+    const res = await request(app)
+      .put(`/api/v1/breweries/${brewery.id}`)
+      .send({
+        name: 'Black Raven Brewing Company'
+      });
+    expect(res.body).toEqual({ ...brewery, name: 'Black Raven Brewing Company' });
+  });
 });
