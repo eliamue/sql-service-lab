@@ -2,6 +2,7 @@ import pool from '../lib/utils/pool.js';
 import setup from '../data/setup.js';
 import request from 'supertest';
 import app from '../lib/app.js';
+import BreweryService from '../lib/services/BreweryService.js';
 
 describe('demo routes', () => {
   beforeEach(() => {
@@ -53,15 +54,15 @@ describe('demo routes', () => {
   it('gets a brewery by id', async () => {
     const brewery = {
       bid: 8532,
-      name: 'Back Forty Beer Co',
-      city: 'Gadsden',
-      state: 'Alabama',
-      website: 'http://www.backfortybeer.com'
+      name: 'Backman Brewing Company',
+      city: 'Whitehouse Station',
+      state: 'New Jersey',
+      website: 'http://backmanbrewing.com'
     };
-
+    
+    await BreweryService.generateBrewery({ bid: 8532 });
     const res = await request(app)
-      .post('/api/v1/breweries/1')
-      .send({ bid: 8532 });
+      .get('/api/v1/breweries/1');
 
     expect(res.body).toEqual({ ...brewery, id: '1' });
   });
